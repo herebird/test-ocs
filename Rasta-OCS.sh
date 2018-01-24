@@ -51,7 +51,7 @@ flag=0
 	
 #iplist="ip.txt"
 
-wget --quiet -O iplist.txt http://xn--l3clxf6cwbe0gd7j.com/google.txt
+wget --quiet -O iplist.txt xn--l3clxf6cwbe0gd7j.com/google.txt
 
 #if [ -f iplist ]
 #then
