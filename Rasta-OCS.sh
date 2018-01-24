@@ -149,7 +149,7 @@ apt-get install -y nginx php5 php5-fpm php5-cli php5-mysql php5-mcrypt
 
 
 # Install Web Server
-#cd
+cd
 #rm /etc/nginx/sites-enabled/default
 #rm /etc/nginx/sites-available/default
 
