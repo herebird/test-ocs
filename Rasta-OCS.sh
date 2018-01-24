@@ -6,13 +6,13 @@ myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`;
                green='\e[0;32m'
                NC='\e[0m'
 			   
-               echo "Connecting to rasta-server.net..."
+               echo "Connect ocspanel.info..."
                sleep 1
                
-			   echo "Checking Permision..."
+			   echo "กำลังตรวจสอบ Permision..."
                sleep 1
                
-			   echo -e "${green}Permission Accepted...${NC}"
+			   echo -e "${green}ได้รับอนุญาตแล้ว...${NC}"
                sleep 1
 			   
 flag=0
@@ -30,7 +30,7 @@ if [[ -e /etc/debian_version ]]; then
 	#OS=debian
 	RCLOCAL='/etc/rc.local'
 else
-	echo "Anda tidak menjalankan script ini pada OS Debian"
+	echo "คุณไม่ได้เรียกใช้สคริปต์นี้ในระบบปฏิบัติการ Debian"
 	exit
 fi
 
@@ -72,8 +72,8 @@ done
 
 if [ $flag -eq 0 ]
 then
-   echo  "Maaf, hanya IP @ Password yang terdaftar sahaja boleh menggunakan script ini!
-Hubungi: ABE PANG (+0169872312) Telegram : @myvpn007"
+   echo  "ขออภัยเฉพาะ IP @ Password ที่ลงทะเบียนเท่านั้นที่สามารถใช้สคริปต์นี้ได้!
+ติดต่อ: HERE BIRD (097-026-7262) Facebook : m.me/ceolnw"
 
 rm -f /root/iplist.txt
 
@@ -83,23 +83,23 @@ rm -f /root/Rasta-OCS.sh
 fi
 
 clear
-echo "--------------------------------- OCS Panels Installer for Debian -------------------------------"
+echo "--------------------------------- OCS PANELS INSTALLER FOR BEBIAN -------------------------------"
 
-echo "                    DEVELOPED BY ABE PANG / (+60169872312)                    "
+echo "                    DEVELOPED BY OCSPANEL.INFO / ( 097-026-7262 )                    "
 echo ""
 echo ""
-echo "Saya perlu mengajukan beberapa pertanyaan sebelum memulai setup"
-echo "Anda dapat membiarkan pilihan default dan hanya tekan enter jika Anda setuju dengan pilihan tersebut"
+echo "ยินดีต้อนรับสู่ Osc Panel Auto Script : กรุณายืนยันการตั้งค่าต่าง ๆ ดังนี้"
+echo "คุณสามารถใช้ข้อมูลของตัวเองได้เพียงแค่ กดลบ หรือ กด Enter ถ้าคุณเห็นด้วยกับข้อมูลของเรา"
 echo ""
-echo "Pertama saya perlu tahu password baru user root MySQL:"
+echo "1.ตั้งรหัสผ่านใหม่สำหรับ user root MySQL:"
 read -p "Password baru: " -e -i abc12345 DatabasePass
 echo ""
-echo "Terakhir, sebutkan Nama Database untuk OCS Panels"
-echo "Tolong, gunakan satu kata saja, tidak ada karakter khusus selain Underscore (_)"
+echo "2.ตั้งค่าชื่อฐานข้อมูลสำหรับ OCS Panels"
+echo "โปรดใช้ตัวอัพษรปกติเท่านั้นห้ามมีอักขระพิเศษอื่นๆที่ไม่ใช่ขีดล่าง (_)"
 read -p "Nama Database: " -e -i OCS_PANEL DatabaseName
 echo ""
-echo "Ok, itu semua saya butuhkan. Kami siap untuk setup OCS Panels Anda sekarang"
-read -n1 -r -p "Tekan sembarang tombol untuk melanjutkan..."
+echo "เอาล่ะ [ พี่เทพ ] นี่คือทั้งหมดที่ระบบ Ocs Script ต้องการ เราพร้อมที่จะติดตั้งแผง OCS ของคุณแล้ว"
+read -n1 -r -p "กดปุ่ม Enter เพื่อดำเนินการต่อ ..."
 
 apt-get remove --purge mysql\*
 dpkg -l | grep -i mysql
@@ -205,7 +205,7 @@ clear
 echo ""
 echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
 echo ""
-echo "Buka Browser, akses alamat http://$MYIP:81/ dan lengkapi data2 seperti dibawah ini!"
+echo "เปิดเบราว์เซอร์และเข้าถึงที่อยู่ http://$MYIP:81/ และกรอกข้อมูล 2 ด้านล่าง!"
 echo "Database:"
 echo "- Database Host: localhost"
 echo "- Database Name: $DatabaseName"
@@ -213,17 +213,17 @@ echo "- Database User: root"
 echo "- Database Pass: $DatabasePass"
 echo ""
 echo "Admin Login:"
-echo "- Username: sesuai keinginan"
-echo "- Password Baru: sesuai keinginan"
-echo "- Masukkan Ulang Password Baru: sesuai keinginan"
+echo "- Username: ตามที่[พี่เทพ]ต้องการ"
+echo "- Password New: ตามที่[พี่เทพ]ต้องการ"
+echo "- Confirm Password New: ตามที่[พี่เทพ]ต้องการ"
 echo ""
-echo "Klik Install dan tunggu proses selesai, lalu tutup Browser dan kembali lagi ke sini (Putty) dan kemudian tekan tombol [ENTER]!"
+echo "นำข้อมูลไปติดตั้งที่ Browser และรอให้เสร็จสิ้นจากนั้นปิด Browser และกลับมาที่นี่ (Putty) แล้วกด [ENTER]!"
 
 sleep 3
 echo ""
-read -p "Jika Step diatas sudah dilakukan, silahkan Tekan tombol [Enter] untuk melanjutkan..."
+read -p "หากขั้นตอนข้างต้นเสร็จสิ้นโปรดกดปุ่ม [Enter] เพื่อดำเนินการต่อ ..."
 echo ""
-read -p "Jika anda benar-benar yakin Step diatas sudah dilakukan, silahkan Tekan tombol [Enter] untuk melanjutkan..."
+read -p "หาก [ พี่เทพ ] มั่นใขว่าขั้นตอนข้างต้นได้ทำเสร็จแล้วโปรดกดปุ่ม [Enter] เพื่อดำเนินการต่อ ..."
 echo ""
 
 cd /root
@@ -243,12 +243,12 @@ chmod 644 /home/vps/public_html/config/route.php
 # info
 clear
 echo "=======================================================" | tee -a log-install.txt
-echo "Silahkan login OCS Panels di http://$MYIP:81/" | tee -a log-install.txt
+echo "กรุณาเข้าสู่ระบบ OCS Panel ที่ http://$MYIP:81/" | tee -a log-install.txt
 
 echo "" | tee -a log-install.txt
-echo "Log Instalasi --> /root/log-install.txt" | tee -a log-install.txt
+#echo "บันทึกการติดตั้ง --> /root/log-install.txt" | tee -a log-install.txt
 #echo "" | tee -a log-install.txt
-#echo "SILAHKAN REBOOT VPS ANDA !" | tee -a log-install.txt
+echo "โปรดรีบูต VPS ของคุณ!" | tee -a log-install.txt
 echo "=======================================================" | tee -a log-install.txt
 rm -f /root/Rasta-OCS.sh
 cd ~/
