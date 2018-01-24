@@ -18,7 +18,7 @@ myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`;
 flag=0
 
 if [ $USER != 'root' ]; then
-	echo "Anda harus menjalankan ini sebagai root"
+	echo "คุณต้องเรียกใช้งานนี้เป็น root"
 	exit
 fi
 
@@ -37,12 +37,12 @@ fi
 vps="VPS";
 
 if [[ $vps = "VPS" ]]; then
-	source="https://raw.githubusercontent.com/yusuf-ardiansyah/new"
+	source="http://ocspanel.info"
 else
-	source="https://raw.githubusercontent.com/yusuf-ardiansyah/new"
+	source="http://เฮียเบิร์ด.com"
 fi
 
-# go to root
+# GO TO ROOT
 cd
 
 MYIP=$(wget -qO- ipv4.icanhazip.com);
@@ -51,7 +51,7 @@ flag=0
 	
 #iplist="ip.txt"
 
-wget --quiet -O iplist.txt http://xn--l3clxf6cwbe0gd7j.com/IP.txt
+wget --quiet -O iplist.txt $source/IP.txt
 
 #if [ -f iplist ]
 #then
