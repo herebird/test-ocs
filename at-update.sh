@@ -68,59 +68,23 @@ echo ""
 echo "เอาล่ะ [ พี่เทพ ] นี่คือทั้งหมดที่ระบบ Ocs Script ต้องการ เราพร้อมที่จะติดตั้ง Auto Updete ของคุณแล้ว"
 read -n1 -r -p "กดปุ่ม Enter เพื่อดำเนินการต่อ ..."
 
-apt-get remove --purge mysql\*
-dpkg -l | grep -i mysql
-apt-get clean
-
 apt-get update && apt-get upgrade -y
 
 apt-get install curl -y
 
 apt-get install apache2 -y
 
-
-
-service nginx stop
-service php5-fpm stop
-service php5-cli stop
-
 apt-get install php5 libapache2-mod-php5 php5-mcrypt -y
 
 service apache2 restart
 
-#apt-get update
-apt-get update -y
+sleep 10
 
-apt-get install build-essential expect -y
+apt-get install mysql-server
 
-apt-get install -y mysql-server
+mysql_install_db
 
-#mysql_secure_installation
-so1=$(expect -c "
-spawn mysql_secure_installation; sleep 3
-expect \"\";  sleep 3; send \"\r\"
-expect \"\";  sleep 3; send \"Y\r\"
-expect \"\";  sleep 3; send \"$DatabasePass\r\"
-expect \"\";  sleep 3; send \"$DatabasePass\r\"
-expect \"\";  sleep 3; send \"Y\r\"
-expect \"\";  sleep 3; send \"Y\r\"
-expect \"\";  sleep 3; send \"Y\r\"
-expect \"\";  sleep 3; send \"Y\r\"
-expect eof; ")
-echo "$so1"
-#\r
-#Y
-#pass
-#pass
-#Y
-#Y
-#Y
-#Y
-
-chown -R mysql:mysql /var/lib/mysql/
-chmod -R 755 /var/lib/mysql/
-
-apt-get install -y nginx php5 php5-fpm php5-cli php5-mysql php5-mcrypt
+mysql_secure_installation
 
 apt-get install phpmyadmin -y
 
@@ -128,26 +92,23 @@ php5enmod mcrypt
 
 service apache2 restart
 
+sleep 10
+
+
 ln -s /usr/share/phpmyadmin /home/vps/public_html/
 
 
 apt-get install libssh2-1-dev libssh2-php -y
 
+
 php -m |grep ssh2
 
 apt-get install php5-curl
 
+
 service apache2 restart
 
-# Install Web Server
-cd
-rm /etc/nginx/sites-enabled/default
-rm /etc/nginx/sites-available/default
-
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/rasta-team/MyVPS/master/nginx.conf"
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/rasta-team/MyVPS/master/vps.conf"
-sed -i 's/cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php5/fpm/php.ini
-sed -i 's/listen = \/var\/run\/php5-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
+sleep 10
 
 mkdir -p /home/vps/public_html
 
@@ -159,7 +120,8 @@ chown -R www-data:www-data /home/vps/public_html
 chmod -R g+rw /home/vps/public_html
 
 service php5-fpm restart
-service nginx restart
+
+sleep 10
 
 apt-get -y install zip unzip
 
@@ -201,11 +163,6 @@ echo "- Database Host: localhost"
 echo "- Database Name: $DatabaseName"
 echo "- Database User: root"
 echo "- Database Pass: $DatabasePass"
-echo ""
-echo "Admin Login:"
-echo "- Username: ตามที่[พี่เทพ]ต้องการ"
-echo "- Password New: ตามที่[พี่เทพ]ต้องการ"
-echo "- Confirm Password New: ตามที่[พี่เทพ]ต้องการ"
 echo ""
 echo "หากคุณแน่ใจว่า จดจำได้แล้ว กด [ENTER]!"
 
