@@ -50,9 +50,9 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 flag=0	
 
 clear
-echo "--------------------------------- OCS PANELS INSTALLER FOR BEBIAN -------------------------------"
+echo "------------------ ระบบแอป ออโต้อัพเดต ออโต้เซ็ทอัพ ----------------"
 
-echo "                    DEVELOPED BY OCSPANEL.INFO / ( 097-026-7262 )                    "
+echo "            DEVELOPED BY OCSPANEL.INFO / ( 097-026-7262 )         "
 echo ""
 echo ""
 echo "ยินดีต้อนรับสู่ Osc Panel Auto Script : กรุณายืนยันการตั้งค่าต่าง ๆ ดังนี้"
@@ -65,7 +65,7 @@ echo "2.ตั้งค่าชื่อฐานข้อมูลสำหร
 echo "โปรดใช้ตัวอัพษรปกติเท่านั้นห้ามมีอักขระพิเศษอื่นๆที่ไม่ใช่ขีดล่าง (_)"
 read -p "Nama Database: " -e -i OCS_PANEL DatabaseName
 echo ""
-echo "เอาล่ะ [ พี่เทพ ] นี่คือทั้งหมดที่ระบบ Ocs Script ต้องการ เราพร้อมที่จะติดตั้งแผง OCS ของคุณแล้ว"
+echo "เอาล่ะ [ พี่เทพ ] นี่คือทั้งหมดที่ระบบ Ocs Script ต้องการ เราพร้อมที่จะติดตั้ง Auto Updete ของคุณแล้ว"
 read -n1 -r -p "กดปุ่ม Enter เพื่อดำเนินการต่อ ..."
 
 apt-get remove --purge mysql\*
