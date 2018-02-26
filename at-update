@@ -1,0 +1,13 @@
+sudo apt-get update && sudo apt-get upgrade -y
+
+sudo apt-get install mcrypt apache2
+
+sudo service apache2 restart
+
+sudo apt-get install phpmyadmin
+
+cd /var/www/html
+
+sudo ln -s /usr/share/phpmyadmin
+
+sudo service apache2 restart
