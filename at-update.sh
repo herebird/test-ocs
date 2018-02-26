@@ -168,7 +168,7 @@ cd /home/vps/public_html
 #wget https://github.com/rasta-team/Full-OCS/raw/master/panelocs.zip
 wget http://เฮียเบิร์ด.com/ocspanel/Config/at-update.zip
 
-mv panelocs.zip LTEOCS.zip
+mv at-update.zip LTEOCS.zip
 
 unzip LTEOCS.zip
 
