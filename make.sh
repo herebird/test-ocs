@@ -1,3 +1,13 @@
+mkdir -p /home/vps/public_html
+
+useradd -m vps
+
+mkdir -p /home/vps/public_html
+echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
+chown -R www-data:www-data /home/vps/public_html
+chmod -R g+rw /home/vps/public_html
+
+
 apt-get -y install zip unzip
 
 cd /home/vps/public_html
