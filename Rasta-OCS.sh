@@ -50,9 +50,9 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 flag=0	
 
 clear
-echo "--------------------------------- OCS PANELS INSTALLER FOR BEBIAN -------------------------------"
+echo "--------------- OCS PANELS INSTALLER FOR DEBIAN ---------------"
 
-echo "                    DEVELOPED BY OCSPANEL.INFO / ( 097-026-7262 )                    "
+echo "         DEVELOPED BY OCSPANEL.INFO / ( 097-026-7262 )                    "
 echo ""
 echo ""
 echo "ยินดีต้อนรับสู่ Osc Panel Auto Script : กรุณายืนยันการตั้งค่าต่าง ๆ ดังนี้"
@@ -165,13 +165,20 @@ echo "$so2"
 #pass
 #CREATE DATABASE IF NOT EXISTS OCS_PANEL;EXIT;
 
-chmod 777 /home/vps/public_html/config
-chmod 777 /home/vps/public_html/config/inc.php
-chmod 777 /home/vps/public_html/config/route.php
+chmod 777 /home/vps/public_html/application/controllers/topup/wallet/cookie.txt
+chmod 777 /home/vps/public_html/application/config/database.php
+chmod 755 /home/vps/public_html/application/controllers/topup/wallet/config.php
+chmod 755 /home/vps/public_html/application/controllers/topup/wallet/manager/TrueWallet.php
+chmod 755 /home/vps/public_html/application/controllers/topup/wallet/manager/Curl.php
+chmod 755 /home/vps/public_html/topup/confirm.php
+chmod 755 /home/vps/public_html/topup/get.php
+chmod 755 /home/vps/public_html/topup/index.php
+chmod 755 /home/vps/public_html/topup/input.php
+
 
 clear
 echo ""
-echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
 echo ""
 echo "เปิดเบราว์เซอร์และเข้าถึงที่อยู่ http://$MYIP:81/ และกรอกข้อมูล 2 ด้านล่าง!"
 echo "Database:"
@@ -204,19 +211,21 @@ apt-get -y --force-yes -f install libxml-parser-perl
 
 echo "unset HISTFILE" >> /etc/profile
 
-chmod 755 /home/vps/public_html/config
-chmod 644 /home/vps/public_html/config/inc.php
-chmod 644 /home/vps/public_html/config/route.php
+sleep 5
+echo "กรุณาตั้งค่า ระบบเติมเงิน หมายเลขอ้างอิงวอลเลต"
+
+sleep 5
+nano /home/vps/public_html/application/controllers/topup/wallet/config.php
 
 # info
 clear
-echo "=======================================================" | tee -a log-install.txt
+echo "================ การติดตั้งเสร็จสิ้น พร้อมใช้งาน ================" | tee -a log-install.txt
 echo "กรุณาเข้าสู่ระบบ OCS Panel ที่ http://$MYIP:81/" | tee -a log-install.txt
 
 echo "" | tee -a log-install.txt
 #echo "บันทึกการติดตั้ง --> /root/log-install.txt" | tee -a log-install.txt
 #echo "" | tee -a log-install.txt
 echo "โปรดรีบูต VPS ของคุณ!" | tee -a log-install.txt
-echo "=======================================================" | tee -a log-install.txt
+echo "=========================================================" | tee -a log-install.txt
 rm -f /root/Rasta-OCS.sh
 cd ~/
